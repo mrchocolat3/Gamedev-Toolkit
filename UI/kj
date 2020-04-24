@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Gamedev Toolkit V2.0 | E3Codewares</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css">  
+    
+<!--===============================================================================================-->
+</head>
+<style>
+    body {
+      font-family: "Lato", sans-serif;
+    }
+    
+    .sidenav {
+      height: 100%;
+      width: 20%;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: #313638;
+      overflow-x: hidden;
+      padding-top: 20px;
+    }
+
+    .card-title{
+      font-size: 18px;
+      text-align: center;
+    }
+
+    .card-body > button, .card-body > a{
+      width: 100%;
+    }
+    
+    </style>
+<body onload="fetchTask();">
+    <!-- Navbar -->
+    <nav class="sidenav nav-pills ">
+      <ul class="nav flex-column p-l-10 p-r-10 m-t-10 m-b-13" id="tab-view">
+        <li class="nav-item">
+          <p class="fs-20 text-white text-up text-center active"  href="#Home">Gamedev Tool kit</p>
+          <hr class="hr-title">
+        </li>
+      </ul>
+      
+      <ul class="nav flex-column p-r-10 text-left m-b-10">
+        <p class="nav-title">Programs <hr class="hr-nav"></p>
+        <li class="nav-item">
+          <a class="nav-link"  href="Templates/Programs/Launcher.html">App Launcher <i class="fa fa-laptop" aria-hidden="true"></i> </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  href="Templates/Programs/Installer.html">Quick Installer <i class="fa fa-hacker-news" aria-hidden="true"></i> </a>
+        </li>
+
+        <p class="nav-title">Tools <hr class="hr-nav"></p>
+        <li class="nav-item">
+          <a class="nav-link"  href="Templates/Tools/NameGen.html">Generate Game Name <i class="fa fa-random" aria-hidden="true"></i> </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  href="Templates/Tools/ThemeGen.html">Generate Game Theme <i class="fa fa-angellist" aria-hidden="true"></i> </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  href="Templates/Tools/ItemGen.html">Generate Item Name <i class="fa fa-scissors" aria-hidden="true"></i> </i> </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  href="Templates/Tools/NpcGen.html"> Generate NPC Name <i class="fa fa-address-book" aria-hidden="true"></i></a>
+        </li>
+
+      <p class="nav-title"> Extra <hr class="hr-nav"></p>
+        <li class="nav-item">
+          <a class="nav-link"  href="Templates/Extra/Notepad.html"> Notepad <i class="fa fa-sticky-note-o" aria-hidden="true"></i> </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  href="Templates/Extra/Todo.html"> Todo List <i class="fa fa-newspaper-o" aria-hidden="true"></i></a>
+        </li>
+
+      <p class="nav-title"> Other <hr class="hr-nav"></p>
+        <li class="nav-item">
+          <a class="nav-link" href="Templates/Other/about.html"> About us <i class="fa fa-info-circle" aria-hidden="true"></i> </a>
+        </li>
+      </ul>
+    </nav>
+	
+	<div class="limiter tab-content">
+    <!-- HOME TAB -->
+      <div class="container m-t-5 tab-pane active" id="Home">
+          <h1 class="text-center text-capitalize f-montserrat text-onyx"> Gamedev Toolkit V2.0 </h1>
+          <hr>
+      </div>
+    <!-- END HOME TAB -->
+    </div>
+
+    <!-- INSTALLER TAB -->
+      <div class="container-fluid tab-pane" id="Installer">
+        <h4 class="text-center text-capitalize f-montserrat text-onyx">Install Game Engines </h4>
+        <hr>
+        <div class="launcher  m-t-100">
+          <div class="card-columns">
+            <div class="card bgwhite">
+              <div class="card-body">
+                <h4 class="card-title"> Unity Engine </h4>
+                <a href="https://unity.com" class="btn btn-outline-success"> browse <i class="fa fa-search" aria-hidden="true"></i> </a>
+              </div>
+            </div>
+            
+            <div class="card bgwhite">
+              <div class="card-body">
+                <h4 class="card-title"> Unreal Engine </h4>
+                <a href="https://www.unrealengine.com/en-US/" class="btn btn-outline-success"> browse <i class="fa fa-search" aria-hidden="true"></i> </a>
+              </div>
+            </div>
+
+          <div class="card bgwhite">
+            <div class="card-body">
+              <h4 class="card-title"> Godot Engine </h4>
+              <a href="https://godotengine.org" class="btn btn-outline-success"> browse <i class="fa fa-search" aria-hidden="true"></i> </a>
+            </div>
+          </div>
+
+        </div>
+        </div>
+      </div>
+    <!-- END INSTALLER TAB -->
+    
+    <!-- TOOL | NAME GEN TAB -->
+      <div class="container-fluid tab-pane fade" id="NameGen">
+        <h4 class="text-center text-capitalize f-montserrat text-onyx"> Generate Game Names Of Your Choice </h4>
+        <hr>
+        <form>
+          <div class="form-row">
+            <div class="col">
+              <input type="text" class="form-control" id="game-theme-name" placeholder="Game Theme" name="Gtheme">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" id="custom-name" placeholder="Custom name" name="Cname">
+            </div>
+          </div>
+          <button class="area-btn btn btn-info m-t-15" onclick="generateName()">Generate </button>
+        </form>
+
+        <div class="container-gen m-t-5" >
+          <h1 class="text-center text-capitalize f-montserrat text-onyx" id="G-name"> Save Mike </h1>
+      </div>
+      </div>
+    <!--END TOOL | NAME GEN TAB -->
+
+    <!-- TOOL | THEME GEN TAB -->
+      <div class="container-fluid tab-pane fade" id="ThemeGen">
+        <h4 class="text-center text-capitalize f-montserrat text-onyx"> Generate Game Theme Of Your Choice </h4>
+        <hr>
+        <form>
+          <div class="form-row">
+            <div class="col">
+              <input type="text" class="form-control" id="custom-theme" placeholder="Custom name" name="Ctheme">
+            </div>
+          </div>
+          <button class="area-btn btn btn-info m-t-15" onclick="generateTheme()">Generate Theme</button>
+        </form>
+
+        <div class="container-gen m-t-5" >
+          <h1 class="text-center text-capitalize f-montserrat text-onyx" id="G-theme"> Parkour </h1>
+      </div>
+      </div>
+    <!--END TOOL | THEME GEN TAB -->
+    
+    <!-- TOOL | ITEM GEN TAB -->
+      <div class="container-fluid tab-pane fade" id="ItemGen">
+        <h4 class="text-center text-capitalize f-montserrat text-onyx"> Generate Item Names Of Your Choice </h4>
+        <hr>
+        <form>
+          <div class="form-row">
+            <div class="col">
+              <input type="text" class="form-control" id="item-suffix" placeholder="Suffix" name="suffix">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" id="item-prefix" placeholder="Prefix" name="preffix">
+            </div>
+          </div>
+          <select name="item" class="custom-select m-t-10">
+            <option selected> Select Items Type</option>
+            <option value="props"> Prop </option>
+            <option value="weapons"> Weapons </option>
+          </select>
+          <button class="area-btn btn btn-info m-t-15" onclick="generateItem()">Generate </button>
+        </form>
+
+        <div class="container-gen m-t-5" >
+          <h1 class="text-center text-capitalize f-montserrat text-onyx" id="G-item"> Rocket Launcher </h1>
+      </div>
+      </div>
+    <!--END TOOL | ITEM GEN TAB -->
+    
+    <!-- TOOL | NPC GEN TAB -->
+      <div class="container-fluid tab-pane fade" id="NpcGen">
+        <h4 class="text-center text-capitalize f-montserrat text-onyx"> Generate NPC Names Of Your Choice </h4>
+        <hr>
+        <form>
+          <div class="form-row">
+            <div class="col">
+              <input type="text" class="form-control" id="first-name" placeholder="Custom First Name" name="CFN">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" id="last-name" placeholder="Custom Last Name" name="CLN">
+            </div>
+          </div>
+          <select name="gender" class="custom-select m-t-10">
+            <option selected> Select Gender</option>
+            <option value="male"> Male </option>
+            <option value="female"> Female </option>
+          </select>
+          <button class="area-btn btn btn-info m-t-15" onclick="generateName()">Generate </button>
+        </form>
+
+        <div class="container-gen m-t-5" >
+          <h1 class="text-center text-capitalize f-montserrat text-onyx" id="G-name"> Emiliya </h1>
+      </div>
+      </div>
+    <!--END TOOL | ITEM GEN TAB -->
+
+    <!-- NOTEPAD TAB -->
+      <div class="container-fluid tab-pane fade" id="Notepad">
+        <h4 class="text-center text-capitalize f-montserrat text-onyx"> Take Important Notes </h4>
+        <hr>
+        <form class="m-t-40">
+          <div class="row m-b-40">
+            <div class="col input-group">
+              <input type="text" class="form-control" id="note-name" placeholder="New Note" name="note">
+              <div class="input-group-append">
+                <button class="btn btn-dark" type="button" onclick="createNote()"> Create </button>
+              </div>
+            </div>
+            <div class="col">
+              <button class="btn btn-dark" style="width: 100%" onclick="importNote()"> Import Notes <i class="fa fa-folder" aria-hidden="true"></i> </button>
+            </div>
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" rows="5" id="notes" placeholder="Add Notes" maxlength="1500"></textarea>
+            <button class="area-btn btn btn-info m-t-15" onclick="saveNote()">Save <i class="fa fa-file-text" aria-hidden="true"></i></button>
+          </div>
+        </form>
+
+      </div>
+    <!-- END NOTEPAD TAB -->
+
+    <!-- TODO TAB -->
+      <div class="container-fluid tab-pane fade" id="Todo">
+        <h4 class="text-center text-capitalize f-montserrat text-onyx"> My todo List </h4>
+        <hr>
+        <div class="input-group">
+          <input type="text" class="form-control" id="task-name" placeholder="New Task" name="task">
+          <div class="input-group-append">
+            <button class="btn btn-dark" type="button" onclick="createTask()"> <i class="fa fa-plus" aria-hidden="true"></i> </button>
+          </div>
+        </div>
+        <div class="container-task">
+          <ul class="nav" id="task-ul" onload="fetchTask()">
+          </ul>
+        </div>
+      </div>
+    <!-- END TODO TAB -->
+
+	</div>
+	
+
+	
+<!-- jQuery library -->
+<script type='text/javascript' src="vendor/jquery/jquery-3.2.1.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script type='text/javascript' src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<script type='text/javascript' src='js/main.js'></script>
+<script type="text/javascript">
+
+  function checkTask(d) {
+    var c = d.getAttribute('class');
+    if (c === "open"){
+      d.setAttribute('class', "done");
+      updateTask(d.getAttribute('value'), true)
+    }else{
+      d.setAttribute("class", "open");
+      updateTask(d.getAttribute('value'), false)
+    }
+  }
+
+// Create a new list item when clicking on the "Add" button
+function renderTask(name) {
+  var li = document.createElement("li");
+  var t = document.createTextNode(name);
+  li.setAttribute('class', 'task-li');
+  li.appendChild(t);
+  if (name === '') {
+    alert("You must write something!");
+  } else {
+    document.getElementById("task-ul").appendChild(li);
+  }
+
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);
+
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.remove();
+    }
+  }
+}
+
+function createTask(){
+  var name = document.getElementById("task-name").value;
+  // Create Storage
+  var new_task = {name:name, state:'open'}
+  var item_name = "todo-task";
+  if(localStorage.getItem(item_name) == null){
+    var task = [];
+    task.push(new_task);
+    localStorage.setItem(item_name, JSON.stringify(task));
+  }else{
+    var todo_task = JSON.parse(localStorage.getItem(item_name));
+    todo_task.push(new_task);
+    localStorage.setItem(item_name, JSON.stringify(todo_task));
+  }
+  location.reload();
+}
+
+function fetchTask(){
+  var task = JSON.parse(localStorage.getItem('todo-task'));
+  var ul = document.getElementById('task-ul');
+  ul.innerHTML = "";
+  for(var i = 0; i<task.length; i++){
+    var name = task[i].name;
+    var state = task[i].state;
+
+    ul.innerHTML += '<li class= "task-li '+state+' " onclick="checkTask(this)" value="'+name+'">'+name+' </li>';
+
+  }
+
+  var myNodelist = document.getElementsByClassName("task-li");
+  var i;
+  for (i = 0; i < myNodelist.length; i++) {
+    var span = document.createElement("SPAN");
+    var txt = document.createTextNode("\u00D7");
+    span.className = "close";
+    span.appendChild(txt);
+    myNodelist[i].appendChild(span);
+  }
+
+  // Click on a close button to hide the current list item
+  var close = document.getElementsByClassName("close");
+  var i;
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      removeTask(div.getAttribute('value'));
+    }
+  }
+}
+
+function removeTask(name){
+  var id;
+  var task = JSON.parse(localStorage.getItem('todo-task'));
+  for(var i = 0; i<task.length; ++i){
+    if (task[i].name == name){
+      id = i;
+    }
+  }
+  delete task[id];
+  task = task.filter(function(x) { return x !== null }); 
+  localStorage.setItem("todo-task", JSON.stringify(task));
+  fetchTask();
+  location.reload();
+}
+
+function updateTask(name, done){
+  var id;
+  var task = JSON.parse(localStorage.getItem('todo-task'));
+    for(var i = 0; i<task.length; ++i){
+    if (task[i].name == name){
+      id = i;
+    }
+  }
+  var old_State = task[id].state;
+  if(done){
+    task[id].state = "done";
+  }else{
+    task[id].state = "open";
+  }
+  localStorage.setItem("todo-task", JSON.stringify(task));
+  
+}
+
+// KEEP SELECTED TAB OPEN
+$('a[]').click(function(e) {
+  localStorage.setItem('activeTab', $(e.target).attr('href'));
+});
+
+var activeTab = localStorage.getItem('activeTab');
+console.log("activeTab: " + activeTab);
+if (activeTab) {
+   $('a[href="' + activeTab + '"]').tab('show');
+}
+
+
+let trayMenu = Menu.buildFromTemplate(trayMenuTemplate)
+trayIcon.setContextMenu(trayMenu)
+</script>
+</body>
+</html>

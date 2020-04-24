@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Gamedev Toolkit V2.0 | E3Codewares</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/hover/css/hover-min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css">  
+  <script type="text/javascript" src="/eel.js"></script>
+<!--===============================================================================================-->
+</head>
+<style>
+    body {
+      font-family: "Lato", sans-serif;
+    }
+    .hideme {opacity: 0;}
+    .sidenav {
+      height: 100%;
+      width: 20%;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: #313638;
+      overflow-x: hidden;
+      padding-top: 20px;
+    }
+
+    .card-title{
+      font-size: 18px;
+      text-align: center;
+    }
+
+    .card-body > button, .card-body > a{
+      width: 100%;
+    }
+
+    .body{
+      height: 100%;
+      /* margin-left: 20%; */
+      font: 400 15px/1.8 "Lato", sans-serif;
+      color: #777;
+    }
+    
+    
+    .bgimg-1, .bgimg-2, .bgimg-3 {
+      position: relative;
+      opacity: 0.65;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    
+    }
+    .bgimg-1 {
+      background-image: url("images/forest.jpg");
+      min-height: 100%;
+    }
+    
+    .bgimg-2 {
+      background-image: url("images/idea.jpg");
+      min-height: 400px;
+    }
+    
+    .bgimg-3 {
+      background-image: url("images/tech.jpg");
+      min-height: 400px;
+    }
+    
+    .caption {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 100%;
+      text-align: center;
+      color: #000;
+    }
+    
+    .caption span.border {
+      background-color: #111;
+      color: #fff;
+      padding: 18px;
+      font-size: 25px;
+      letter-spacing: 10px;
+    }
+    
+    .caption span hr{
+      border: 1px solid transparent;
+      background-color: white;
+      width: 60%;
+      margin-left: 20%;
+    }
+    
+    
+    h3 {
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      font: 20px "Lato", sans-serif;
+      color: #111;
+    }
+    
+    </style>
+<!-- <body onload="fetchTask(); getApps();"> -->
+<body onload="fetchTask();">
+    <!-- Navbar -->
+    <nav class="sidenav nav-pills ">
+      <ul class="nav flex-column p-l-10 p-r-10 m-t-10 m-b-13" id="tab-view">
+        <li class="nav-item">
+          <p class="fs-20 text-white text-up text-center active animated fadeInDown" data-toggle="pill" href="#Home">Gamedev Tool kit</p>
+          <hr class="hr-title animated fadeIn">
+        </li>
+      </ul>
+      
+      <ul class="nav flex-column p-r-10 text-left m-b-10">
+        <p class="nav-title forward animated fadeInLeft">Programs <hr class="hr-nav"></p>
+        <li class="nav-item">
+          <a class="nav-link hvr-forward animated fadeInLeft hvr-icon-buzz-out" data-toggle="pill" href="#Launcher">App Launcher <i class="fa fa-laptop hvr-icon" aria-hidden="true"></i> </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link hvr-forward animated fadeInLeft hvr-icon-buzz-out" data-toggle="pill" href="#Installer">Quick Installer <i class="fa fa-hacker-news hvr-icon" aria-hidden="true"></i> </a>
+        </li>
+
+        <p class="nav-title forward animated fadeInLeft">Tools <hr class="hr-nav"></p>
+        <li class="nav-item">
+          <a class="nav-link hvr-forward animated fadeInLeft hvr-icon-buzz-out" data-toggle="pill" href="#NameGen">Generate Game Name <i class="fa fa-random hvr-icon" aria-hidden="true"></i> </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link hvr-forward animated fadeInLeft hvr-icon-buzz-out" data-toggle="pill" href="#ThemeGen">Generate Game Theme <i class="fa fa-angellist hvr-icon" aria-hidden="true"></i> </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link hvr-forward animated fadeInLeft hvr-icon-buzz-out" data-toggle="pill" href="#ItemGen">Generate Item Name <i class="fa fa-scissors hvr-icon" aria-hidden="true"></i> </i> </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link hvr-forward animated fadeInLeft hvr-icon-buzz-out" data-toggle="pill" href="#NpcGen"> Generate NPC Name <i class="fa fa-address-book hvr-icon" aria-hidden="true"></i></a>
+        </li>
+
+      <p class="nav-title forward animated fadeInLeft"> Extra <hr class="hr-nav"></p>
+        <li class="nav-item">
+          <a class="nav-link hvr-forward animated fadeInLeft hvr-icon-buzz-out" data-toggle="pill" href="#Notepad"> Notepad <i class="fa fa-sticky-note-o hvr-icon" aria-hidden="true"></i> </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link hvr-forward animated fadeInLeft hvr-icon-buzz-out" data-toggle="pill" href="#Todo"> Todo List <i class="fa fa-newspaper-o hvr-icon" aria-hidden="true"></i></a>
+        </li>
+
+      <p class="nav-title forward animated fadeInLeft"> Other <hr class="hr-nav"></p>
+        <li class="nav-item">
+          <a class="nav-link hvr-forward animated fadeInLeft hvr-icon-buzz-out" data-toggle="pill" href="#About"> About us <i class="fa fa-info-circle hvr-icon" aria-hidden="true"></i> </a>
+        </li>
+      </ul>
+    </nav>
+	
+	<div class="limiter tab-content">
+    <!-- HOME TAB -->
+      <div class="container m-t-5 tab-pane active  animated fadeInRight" id="Home">
+          <h1 class="text-center text-capitalize f-montserrat text-onyx"> Gamedev Toolkit V2.0 </h1>
+          <hr>
+      </div>
+    <!-- END HOME TAB -->
+
+    <!-- LAUNCHER TAB -->
+      <div class="container-fluid tab-pane fade" id="Launcher">
+        <h4 class="text-center text-capitalize f-montserrat text-onyx animated fadeInDown"> Launch Your Favourite Editor or Game Engine <hr></h4>
+        <div class="launcher">
+          <div class="card-columns" id="LauncherCol">
+            <!--<div class="card bgwhite hvr-grow-shadow animated fadeInRight">
+              <div class="card-body">
+                <h4 class="card-title"> Visual Studio Code </h4>
+                <button type="button"class="btn btn-success" onclick="launchApp(vscode)"> Launch </button>
+              </div>
+            </div>
+            
+             <div class="card bgwhite hvr-grow-shadow animated fadeInRight">
+              <div class="card-body">
+                <h4 class="card-title">Brackets</h4>
+                <button type="button"class="btn btn-success" onclick="launchApp(brackets)"> Launch </button>
+              </div>
+            </div>
+
+            <div class="card bgwhite hvr-grow-shadow animated fadeInRight">
+              <div class="card-body">
+                <h4 class="card-title">Atom</h4>
+                <button type="button"class="btn btn-success" onclick="launchApp(atom)"> Launch </button>
+              </div>
+            </div>
+
+            <div class="card bgwhite hvr-grow-shadow animated fadeInRight">
+              <div class="card-body">
+                <h4 class="card-title">Netbeans</h4>
+                <button type="button"class="btn btn-success" onclick="launchApp(netbeans)"> Launch </button>
+              </div>
+            </div>
+
+            <div class="card bgwhite hvr-grow-shadow animated fadeInRight">
+              <div class="card-body">
+                <h4 class="card-title">Visual Studio</h4>
+                <button type="button"class="btn btn-success" onclick="launchApp(vs)"> Launch </button>
+              </div>
+            </div>            
+            
+            <div class="card bgwhite hvr-grow-shadow animated fadeInRight">
+              <div class="card-body">
+                <h4 class="card-title"> Unity Engine </h4>
+                <button type="button"class="btn btn-success" onclick="launchApp(unity)"> Launch </button>
+              </div>
+            </div>
+            
+            <div class="card bgwhite hvr-grow-shadow animated fadeInRight">
+              <div class="card-body">
+                <h4 class="card-title">Unreal Engine </h4>
+                <button type="button"class="btn btn-success" onclick="launchApp(unreal)"> Launch </button>
+              </div>
+            </div>
+
+            <div class="card bgwhite hvr-grow-shadow animated fadeInRight">
+              <div class="card-body">
+                <h4 class="card-title"> Spotify </h4>
+                <button type="button"class="btn btn-success" onclick="launchApp(spotify)"> Launch </button>
+              </div>
+            </div>
+          
+            <div class="card bgwhite hvr-grow-shadow animated fadeInRight">
+              <div class="card-body">
+                <h4 class="card-title"> Discord </h4>
+                <button type="button"class="btn btn-success" onclick="launchApp(discord)"> Launch </button>
+              </div>
+            </div>   -->
+          </div>
+        </div>
+      </div>
+    <!-- END LAUNCHER TAB -->
+
+    <!-- INSTALLER TAB -->
+      <div class="container-fluid tab-pane" id="Installer">
+        <h4 class="text-center text-capitalize f-montserrat text-onyx animated fadeInDown">Install Game Engines <hr></h4>
+        <div class="launcher  m-t-100">
+          <div class="card-columns">
+            <div class="card bgwhite hvr-glow animated fadeInRight">
+              <div class="card-body">
+                <h4 class="card-title"> Unity Engine </h4>
+                <button class="btn btn-outline-success hvr-grow-shadow animated fadeInRight" onclick='browse("https://unity.com") '> browse <i class="fa fa-search" aria-hidden="true"></i> </button>
+              </div>
+            </div>
+            
+            <div class="card bgwhite hvr-glow animated fadeInRight">
+              <div class="card-body">
+                <h4 class="card-title"> Unreal Engine </h4>
+                <button onclick='browse("https://www.unrealengine.com/en-US/")' class="btn btn-outline-success hvr-grow-shadow animated fadeInRight"> browse <i class="fa fa-search" aria-hidden="true"></i> </button>
+              </div>
+            </div>
+
+          <div class="card bgwhite hvr-glow animated fadeInRight">
+            <div class="card-body">
+              <h4 class="card-title"> Godot Engine </h4>
+              <button onclick='browse("https://godotengine.org")' class="btn btn-outline-success hvr-grow-shadow animated fadeInRight"> browse <i class="fa fa-search" aria-hidden="true"></i> </button>
+            </div>
+          </div>
+
+        </div>
+        </div>
+      </div>
+    <!-- END INSTALLER TAB -->
+    
+    <!-- TOOL | NAME GEN TAB -->
+      <div class="container-fluid tab-pane fade" id="NameGen">
+        <h4 class="text-center text-capitalize f-montserrat text-onyx animated fadeInDown"> Generate Game Names <hr></h4>
+        <form class="animated fadeIn">
+          <div class="form-row">
+            <div class="col">
+              <input type="text" class="form-control" id="game-theme-name" placeholder="Custom Name" name="Gtheme">
+            </div>
+          </div>
+          <button type="button"class="area-btn btn btn-info m-t-15 hvr-grow-shadow animated fadeInRight" onclick="generateName()">Generate </button>
+        </form>
+
+        <div class="animated fadeInUp container-gen m-t-5" >
+          <h1 class="text-center text-capitalize f-montserrat text-onyx" id="G-name"> Save Mike </h1>
+      </div>
+      </div>
+    <!--END TOOL | NAME GEN TAB -->
+
+    <!-- TOOL | THEME GEN TAB -->
+      <div class="container-fluid tab-pane fade" id="ThemeGen">
+        <h4 class="text-center text-capitalize f-montserrat text-onyx  animated fadeInDown"> Generate Game Theme Of Your Choice <hr> </h4>
+        <form class="animated fadeIn">
+          <div class="form-row">
+            <div class="col">
+              <input type="text" class="form-control" id="custom-theme" placeholder="Custom name" name="Ctheme">
+            </div>
+          </div>
+          <button type="button"class="area-btn btn btn-info m-t-15 hvr-grow-shadow animated fadeInRight" onclick="generateTheme()">Generate </button>
+        </form>
+
+        <div class="container-gen m-t-5 animated fadeInUp" >
+          <h1 class="text-center text-capitalize f-montserrat text-onyx" id="G-theme"> Parkour </h1>
+      </div>
+      </div>
+    <!--END TOOL | THEME GEN TAB -->
+    
+    <!-- TOOL | ITEM GEN TAB -->
+      <div class="container-fluid tab-pane fade" id="ItemGen">
+        <h4 class="text-center text-capitalize f-montserrat text-onyx animated fadeInDown"> Generate Item Names Of Your Choice <hr> </h4>
+        <form class="animated fadeIn">
+          <select name="item" class="custom-select m-t-10 text-center" id="ItemsGen" >
+            <option value="x" selected> Select an Item </option>
+              <optgroup label="<------ Props ------>">
+                <optgroup label=" &nbsp; &nbsp; &nbsp; --House Props-- "> 
+                  <option value="prp_h_Bedroom">Bedroom Props </option>
+                  <option value="prp_h_Livingroom">Livingroom Props</option>
+                  <option value="prp_h_Bathroom">Bathroom Props </option>
+                  <option value="prp_h_Kitchen">Kitchen Props </option>
+                  <option value="prp_h_Laundry">Laundry House Props</option>
+                  <option value="prp_h_Technology">Technology House Props</option>
+                  <option value="prp_h_Misc">Other Houshold Props</option>
+                </optgroup>
+                <option value="prp_street">Street Props</option>
+                <option value="prp_park"> Park Props</option>
+              </optgroup>
+              <optgroup label="<------ Real Weapons ------>">
+                <optgroup label="&nbsp; &nbsp; &nbsp; -- US ARMY --">
+                  <option value="wp_anti_tank">Anti-Tanks (Rocket Launchers) </option>
+                  <option value="wp_carbines">Carbine Rifles (Assult Rifles)</option>
+                  <option value="wp_handguns">Handguns (Pistols) </option>
+                  <option value="wp_knife">Knfies</option>
+                  <option value="wp_mine">Mines</option>
+                  <option value="wp_nade">Granades (Frags, Stun granades, Flash granades)</option>
+                  <option value="wp_rifle">Rifles (Auto, Semi-auto, Snipers)</option>
+                  <option value="wp_shotgun">Shotguns</option>
+                  <option value="wp_sub_machine">Sub Machine Guns</option>
+                </optgroup>
+                <optgroup label="&nbsp; &nbsp; &nbsp; -- Terrorists --">
+                  <option value="wp_t_assult">Assult (Carbines, Handguns, Rocket Launchers)</option>
+                  <option value="wp_t_explosives">Explosives (IEDs, Granades)</option>
+                </optgroup>
+              </optgroup>
+
+              <optgroup label="<------ Game Weapons ------>">
+                <option value="wp_game"> Game Weapons </option>
+              </optgroup>
+          </select>
+          <button type="button"class="area-btn btn btn-info m-t-15 hvr-grow-shadow animated fadeInRight" onclick="generateItemName()">Generate </button>
+        </form>
+
+        <div class="container-gen m-t-5 animated fadeInUp" >
+          <h1 class="text-center text-capitalize f-montserrat text-onyx" id="G-item"> Rocket Launcher </h1>
+      </div>
+      </div>
+    <!--END TOOL | ITEM GEN TAB -->
+    
+    <!-- TOOL | NPC GEN TAB -->
+      <div class="container-fluid tab-pane fade" id="NpcGen">
+        <h4 class="text-center text-capitalize f-montserrat text-onyx animated fadeInDown"> Generate NPC Names Of Your Choice <hr> </h4>
+        <form>
+          <div class="form-row animated fadeInDown">
+            <div class="col">
+              <input type="text" class="form-control" id="first-name" placeholder="Custom First Name" name="CFN">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" id="last-name" placeholder="Custom Last Name" name="CLN">
+            </div>
+          </div>
+          <select name="gender" class="custom-select m-t-10 animated fadeInDown" id="gender">
+            <option selected> Select Gender</option>
+            <option value="male"> Male </option>
+            <option value="female"> Female </option>
+          </select>
+          <button type="button"class="area-btn btn btn-info m-t-15 hvr-grow-shadow animated fadeInRight" onclick="generateNpcName()">Generate </button>
+        </form>
+
+        <div class="container-gen m-t-5 animated fadeInUp" >
+          <h1 class="text-center text-capitalize f-montserrat text-onyx" id="G-npc"> Emiliya </h1>
+      </div>
+      </div>
+    <!--END TOOL | ITEM GEN TAB -->
+
+    <!-- NOTEPAD TAB -->
+      <div class="container-fluid tab-pane fade" id="Notepad">
+        <h4 class="text-center text-capitalize f-montserrat text-onyx animated fadeInDown"> Take Important Notes <hr></h4>
+        <form class="m-t-40">
+          <div class="row m-b-40 animated fadeInDown">
+            <div class="col">
+              <button type="button"class="btn btn-dark hvr-icon-buzz-out" style="width: 100%" onclick="createNote()"> Create Note <i class="fa fa-plus hvr-icon" aria-hidden="true"></i> </button>
+            </div>
+            <div class="col">
+              <button type="button"class="btn btn-dark hvr-icon-buzz-out" style="width: 100%" onclick="importNote()"> Import Notes <i class="fa fa-folder hvr-icon" aria-hidden="true"></i> </button>
+            </div>
+          </div>
+          <div class="form-group animated fadeInUp">
+            <input type="text" id="file-path" placeholder="" hidden>
+            <input type="text" class="form-control text-red" id="note-file" placeholder="File: " disabled>
+            <textarea class="form-control" rows="5" id="notes" placeholder="Add Notes" maxlength="1500"></textarea>
+            <button type="button"class="area-btn btn btn-info m-t-15 hvr-grow-shadow animated fadeInRight" onclick="saveNote()" id="saveNoteBtn">Save <i class="fa fa-file-text" aria-hidden="true"></i></button>
+          </div>
+        </form>
+
+      </div>
+    <!-- END NOTEPAD TAB -->
+
+    <!-- TODO TAB -->
+      <div class="container-fluid tab-pane fade" id="Todo">
+        <h4 class="text-center text-capitalize f-montserrat text-onyx animated fadeInDown"> My todo List <hr> </h4>
+        <div class="input-group animated fadeInDown">
+          <input type="text" class="form-control" id="task-name" placeholder="New Task" name="task">
+          <div class="input-group-append">
+            <button type="button"class="btn btn-dark hvr-icon-grow" type="button" onclick="createTask()"> <i class="fa fa-plus hvr-icon" aria-hidden="true"></i> </button>
+          </div>
+        </div>
+        <div class="container-task animated fadeInUp">
+          <ul class="nav" id="task-ul" onload="fetchTask()">
+          </ul>
+        </div>
+      </div>
+    <!-- END TODO TAB -->
+  
+  <!-- ABOUT -->
+    <div class="body tab-pane fad" id="About">
+      <div class="bgimg-1">
+        <div class="caption animated fadeIn">
+        <span class="border" style="background-color:transparent;font-size:25px;color: #f7f7f7;">Gamedev Toolkit V2.0</span><br>
+        </div>
+      </div>
+      
+      <div style="color: #777;background-color:white;text-align:center;padding:5% 80px;text-align: justify; margin-top:20px" class="">
+        <h3 style="text-align:center;"> GD Toolkit </h3>
+        <p class="m-t-10">Gamedev Toolkit is a software made by <b> 'E3 Codewares' </b> to help the game developers around the world to speed up their developing process. One can simply take important notes, plan their development process with the To-do list, Generate Game Name, Game Theme, NPC Names based on their gender with the tools and Quick Launch their prefered development apps from the built in launchers.</p>
+      </div>
+      
+      <div class="bgimg-2 ">
+        <div class="caption">
+          <span class="border" style="background-color:transparent;font-size:25px;color: #f7f7f7;">MADE BY | E3 CODEWARES </span>
+        </div>
+      </div>
+      
+      <div style="position:relative;" class="">
+        <div style="color: #777;background-color:white;text-align:center;padding:5% 80px;text-align: justify; margin-top:20px">
+          <h3 style="text-align:center;"> E3 CODEWARES </h3>
+          <p class="m-t-10 text-center"> E3 Codewares or Ellite codewares is a team of developers who came up with the idea of making this software to help the game developers around the world. </p>
+        </div>
+      
+        <div class="container-about">
+          <h4 style="text-align:center;"> JOIN US  <hr></h4>
+          <ul class="nav about-li justify-content-center">
+            <li class="nav-item">
+              <button class="btn btn-outline-info" onclick='browse("https://discord.gg/UJw6HBH")'> DISCORD </a>
+            </li>
+            <li class="nav-item">
+              <button class="btn btn-outline-info" onclick='browse("https://www.facebook.com/E3Codewares")'> FACEBOOK </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+</div>
+	
+<!-- jQuery library -->
+<script> window.$ = window.jQuery = require("jquery"); </script>
+
+<!-- Latest compiled JavaScript -->
+<script type='text/javascript' src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<script type='text/javascript' src='js/main.js'></script>
+<script type='text/javascript' src='js/tools.js'></script>
+<script type="text/javascript">
+
+  function checkTask(d) {
+    var c = d.getAttribute('class');
+    if (c === "open"){
+      d.setAttribute('class', "done");
+      updateTask(d.getAttribute('value'), true)
+    }else{
+      d.setAttribute("class", "open");
+      updateTask(d.getAttribute('value'), false)
+    }
+  }
+
+// Create a new list item when clicking on the "Add" button
+function renderTask(name) {
+  var li = document.createElement("li");
+  var t = document.createTextNode(name);
+  li.setAttribute('class', 'task-li');
+  li.appendChild(t);
+  if (name === '') {
+    alert("You must write something!");
+  } else {
+    document.getElementById("task-ul").appendChild(li);
+  }
+
+  var span = document.createElement("SPAN");
+  var txt = document.createElement("i");
+  txt.setAttribute("class", "fa fa-times hvr-icon");
+  txt.setAttribute("aria-hidden", "true");
+  span.className = "animated fadeInRight close hvr-icon-grow";
+  span.appendChild(txt);
+  li.appendChild(span);
+
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.remove();
+    }
+  }
+}
+
+function createTask(){
+  var name = document.getElementById("task-name").value;
+  // Create Storage
+  var new_task = {name:name, state:'open'}
+  var item_name = "todo-task";
+  if(localStorage.getItem(item_name) == null){
+    var task = [];
+    task.push(new_task);
+    localStorage.setItem(item_name, JSON.stringify(task));
+  }else{
+    var todo_task = JSON.parse(localStorage.getItem(item_name));
+    todo_task.push(new_task);
+    localStorage.setItem(item_name, JSON.stringify(todo_task));
+  }
+  fetchTask();
+}
+
+function fetchTask(){
+  var task = JSON.parse(localStorage.getItem('todo-task'));
+  var ul = document.getElementById('task-ul');
+  ul.innerHTML = "";
+  if(task){
+    for(var i = 0; i<task.length; i++){
+      var name = task[i].name;
+      var state = task[i].state;
+
+      ul.innerHTML += '<li class= "task-li '+state+' " onclick="checkTask(this)" value="'+name+'">'+name+' </li>';
+    }
+  }
+
+  var myNodelist = document.getElementsByClassName("task-li");
+  var i;
+  for (i = 0; i < myNodelist.length; i++) {
+    var span = document.createElement("SPAN");
+    var txt = document.createElement("i");
+    txt.setAttribute("class", "fa fa-times hvr-icon");
+    txt.setAttribute("aria-hidden", "true");
+    span.className = "animated fadeInRight close hvr-icon-grow";
+    span.appendChild(txt);
+    myNodelist[i].appendChild(span);
+  }
+
+  // Click on a close button to hide the current list item
+  var close = document.getElementsByClassName("close");
+  var i;
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      removeTask(div.getAttribute('value'));
+    }
+  }
+}
+
+function removeTask(name){
+  var id;
+  var task = JSON.parse(localStorage.getItem('todo-task'));
+  for(var i = 0; i<task.length; ++i){
+    if (task[i].name == name){
+      id = i;
+    }
+  }
+  delete task[id];
+  task = task.filter(function(x) { return x !== null }); 
+  localStorage.setItem("todo-task", JSON.stringify(task));
+  fetchTask();
+ // location.reload();
+}
+
+function updateTask(name, done){
+  var id;
+  var task = JSON.parse(localStorage.getItem('todo-task'));
+    for(var i = 0; i<task.length; ++i){
+    if (task[i].name == name){
+      id = i;
+    }
+  }
+  var old_State = task[id].state;
+  if(done){
+    task[id].state = "done";
+  }else{
+    task[id].state = "open";
+  }
+  localStorage.setItem("todo-task", JSON.stringify(task));
+  
+}
+
+// KEEP SELECTED TAB OPEN
+$('a[data-toggle="pill"]').click(function(e) {
+  localStorage.setItem('activeTab', $(e.target).attr('href'));
+});
+
+var activeTab = localStorage.getItem('activeTab');
+
+if (activeTab) {
+   $('a[href="' + activeTab + '"]').tab('show');
+}
+</script>
+</body>
+</html>

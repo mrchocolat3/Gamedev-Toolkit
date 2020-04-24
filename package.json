@@ -1,0 +1,37 @@
+{
+  "name": "gamedevtoolkit",
+  "version": "2.0.0",
+  "description": "A software built to help gamedevelopers",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder",
+    "pack": "electron-builder --dir"
+  },
+  "author": "E3Codewares",
+  "license": "MIT",
+  "dependencies": {
+    "animate.css": "^3.7.2",
+    "jquery": "3.5.0"
+  },
+  "devDependencies": {
+    "electron": "8.2.3",
+    "electron-builder": "^22.5.1"
+  },
+  "build": {
+    "appId": "com.e3codewares.gdtk",
+    "mac": {
+      "target": "pkg",
+      "category": "public.app-category.developer-tools"
+    },
+    "files": [
+      "**/*",
+      "!API/*",
+      "api_dist/api"
+    ]
+  },
+  "_moduleAliases": {
+    "@__main__": "UI/js/__main__.js",
+    "@data": "UI/js/data"
+  }
+}
