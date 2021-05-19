@@ -1,4 +1,4 @@
-# Gamedev-Toolkit
+# Gamedev-Toolkit [Beta 2.1]
 A simple toolkit for game developers out there.
 
 
